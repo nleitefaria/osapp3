@@ -30,7 +30,7 @@ public class EmployeeRWS {
 		return new ResponseEntity<Long>(service.count(), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/projects", method = RequestMethod.GET)
+	@RequestMapping(value = "/employees", method = RequestMethod.GET)
 	public ResponseEntity<List<Employee>> findAll()	
 	{		
 		return new ResponseEntity<List<Employee>>(service.findAll(), HttpStatus.OK);
