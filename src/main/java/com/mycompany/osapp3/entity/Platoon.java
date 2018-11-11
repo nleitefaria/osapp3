@@ -1,13 +1,14 @@
 package com.mycompany.osapp3.entity;
-// Generated 10/nov/2018 12:25:08 by Hibernate Tools 4.3.1
+// Generated 10/nov/2018 23:35:23 by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -21,16 +22,21 @@ public class Platoon  implements java.io.Serializable {
 
 
      private int id;
-     private Employee employee;
-     private String role;
+     private String name;
+     private Set<Employee> employees = new HashSet<Employee>(0);
 
     public Platoon() {
     }
 
-    public Platoon(int id, Employee employee, String role) {
+	
+    public Platoon(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    public Platoon(int id, String name, Set<Employee> employees) {
        this.id = id;
-       this.employee = employee;
-       this.role = role;
+       this.name = name;
+       this.employees = employees;
     }
    
      @Id 
@@ -45,24 +51,23 @@ public class Platoon  implements java.io.Serializable {
         this.id = id;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="employee_id", nullable=false)
-    public Employee getEmployee() {
-        return this.employee;
+    
+    @Column(name="name", nullable=false)
+    public String getName() {
+        return this.name;
     }
     
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    
-    @Column(name="role", nullable=false)
-    public String getRole() {
-        return this.role;
+@OneToMany(fetch=FetchType.LAZY, mappedBy="platoon")
+    public Set<Employee> getEmployees() {
+        return this.employees;
     }
     
-    public void setRole(String role) {
-        this.role = role;
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 
 

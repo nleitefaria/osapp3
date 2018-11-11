@@ -1,5 +1,5 @@
 package com.mycompany.osapp3.entity;
-// Generated 10/nov/2018 12:25:08 by Hibernate Tools 4.3.1
+// Generated 10/nov/2018 23:35:23 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -9,6 +9,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -25,27 +27,29 @@ public class Employee  implements java.io.Serializable {
 
 
      private int id;
+     private Platoon platoon;
+     private Role role;
      private String name;
      private Date startDate;
-     private Set<Platoon> platoons = new HashSet<Platoon>(0);
-     private Set<Role> roles = new HashSet<Role>(0);
      private Set<EmployeeProject> employeeProjects = new HashSet<EmployeeProject>(0);
 
     public Employee() {
     }
 
 	
-    public Employee(int id, String name, Date startDate) {
+    public Employee(int id, Platoon platoon, Role role, String name, Date startDate) {
         this.id = id;
+        this.platoon = platoon;
+        this.role = role;
         this.name = name;
         this.startDate = startDate;
     }
-    public Employee(int id, String name, Date startDate, Set<Platoon> platoons, Set<Role> roles, Set<EmployeeProject> employeeProjects) {
+    public Employee(int id, Platoon platoon, Role role, String name, Date startDate, Set<EmployeeProject> employeeProjects) {
        this.id = id;
+       this.platoon = platoon;
+       this.role = role;
        this.name = name;
        this.startDate = startDate;
-       this.platoons = platoons;
-       this.roles = roles;
        this.employeeProjects = employeeProjects;
     }
    
@@ -59,6 +63,26 @@ public class Employee  implements java.io.Serializable {
     
     public void setId(int id) {
         this.id = id;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="platoon_id", nullable=false)
+    public Platoon getPlatoon() {
+        return this.platoon;
+    }
+    
+    public void setPlatoon(Platoon platoon) {
+        this.platoon = platoon;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="role_id", nullable=false)
+    public Role getRole() {
+        return this.role;
+    }
+    
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     
@@ -79,24 +103,6 @@ public class Employee  implements java.io.Serializable {
     
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="employee")
-    public Set<Platoon> getPlatoons() {
-        return this.platoons;
-    }
-    
-    public void setPlatoons(Set<Platoon> platoons) {
-        this.platoons = platoons;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="employee")
-    public Set<Role> getRoles() {
-        return this.roles;
-    }
-    
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="employee")

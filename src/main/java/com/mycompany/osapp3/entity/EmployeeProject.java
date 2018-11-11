@@ -1,5 +1,5 @@
 package com.mycompany.osapp3.entity;
-// Generated 10/nov/2018 12:25:08 by Hibernate Tools 4.3.1
+// Generated 10/nov/2018 23:35:23 by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
