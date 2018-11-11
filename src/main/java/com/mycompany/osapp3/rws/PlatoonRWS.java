@@ -17,7 +17,7 @@ import com.mycompany.osapp3.entity.Platoon;
 import com.mycompany.osapp3.service.PlatoonService;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "https://nleitefaria.github.io/ghp-app3"}) 
+@CrossOrigin(origins = {"http://localhost:3000", "https://nleitefaria.github.io/ghp-app3/#/"}) 
 public class PlatoonRWS 
 {
 	private static final Logger logger = LoggerFactory.getLogger(PlatoonRWS.class);

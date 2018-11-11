@@ -15,7 +15,7 @@ import com.mycompany.osapp3.entity.Role;
 import com.mycompany.osapp3.service.RoleService;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "https://nleitefaria.github.io/ghp-app3"}) 
+@CrossOrigin(origins = {"http://localhost:3000", "https://nleitefaria.github.io/ghp-app3/#/"}) 
 public class RoleRWS {
 	
 	private static final Logger logger = LoggerFactory.getLogger(RoleRWS.class);

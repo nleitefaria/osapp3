@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "https://fb-app3.firebaseapp.com"}) 
+@CrossOrigin(origins = {"http://localhost:3000", "https://nleitefaria.github.io/ghp-app3/#/"}) 
 public class HelloRWS 
 {
 	private static final Logger logger = LoggerFactory.getLogger(HelloRWS.class);

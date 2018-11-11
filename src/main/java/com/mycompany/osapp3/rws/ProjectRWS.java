@@ -17,7 +17,7 @@ import com.mycompany.osapp3.entity.Project;
 import com.mycompany.osapp3.service.ProjectService;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "https://nleitefaria.github.io/ghp-app3"}) 
+@CrossOrigin(origins = {"http://localhost:3000", "https://nleitefaria.github.io/ghp-app3/#/"}) 
 public class ProjectRWS 
 {
 	private static final Logger logger = LoggerFactory.getLogger(ProjectRWS.class);
