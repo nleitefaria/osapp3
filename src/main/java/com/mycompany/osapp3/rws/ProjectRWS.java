@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mycompany.osapp3.entity.Project;
 import com.mycompany.osapp3.service.ProjectService;
-import com.mycompany.osapp4.entity.Countries;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000", "https://nleitefaria.github.io/ghp-app3"}) 
