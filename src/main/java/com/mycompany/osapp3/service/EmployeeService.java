@@ -9,6 +9,7 @@ public interface EmployeeService
 	Long count() ;
 	List<EmployeeDTO> findAll();
 	EmployeeDTO findOne(String id);
+	List<EmployeeDTO> findEmolyeesForProject(String id);
 	//Employee save(Employee employe);
 
 }

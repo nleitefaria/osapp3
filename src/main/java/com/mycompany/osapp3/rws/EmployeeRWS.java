@@ -42,6 +42,12 @@ public class EmployeeRWS {
 		return new ResponseEntity<EmployeeDTO>(service.findOne(id), HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/employees/project/{id}", method = RequestMethod.GET)
+	public ResponseEntity<List<EmployeeDTO>> findEmolyeesForProject(@PathVariable String id)
+	{		
+		return new ResponseEntity<List<EmployeeDTO>>(service.findEmolyeesForProject(id), HttpStatus.OK);
+	}
+	
 	/*
 	@RequestMapping(value = "/employee", method = RequestMethod.POST)
 	public ResponseEntity<Employee> save(@RequestBody EmployeeDTO employeeDTO)

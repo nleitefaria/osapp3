@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mycompany.osapp3.dto.EmployeeDTO;
 import com.mycompany.osapp3.dto.ProjectDTO;
-import com.mycompany.osapp3.entity.Employee;
 import com.mycompany.osapp3.entity.Project;
 import com.mycompany.osapp3.repository.ProjectRepository;
 import com.mycompany.osapp3.service.ProjectService;
