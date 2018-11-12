@@ -13,9 +13,7 @@ import com.mycompany.osapp3.entity.Employee;
 import com.mycompany.osapp3.entity.EmployeeProject;
 import com.mycompany.osapp3.entity.Project;
 import com.mycompany.osapp3.repository.EmployeeRepository;
-import com.mycompany.osapp3.repository.PlatoonRepository;
 import com.mycompany.osapp3.repository.ProjectRepository;
-import com.mycompany.osapp3.repository.RoleRepository;
 import com.mycompany.osapp3.service.EmployeeService;
 
 @Service

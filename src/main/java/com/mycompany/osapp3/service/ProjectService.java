@@ -9,6 +9,7 @@ public interface ProjectService
 	Long count() ;
 	List<ProjectDTO> findAll();
 	ProjectDTO findOne(String id);
+	List<ProjectDTO> findProjectsForEmolyee(String id);
 	ProjectDTO save(ProjectDTO projectDTO);
 
 }
