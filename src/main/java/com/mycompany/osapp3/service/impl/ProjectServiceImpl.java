@@ -35,6 +35,7 @@ public class ProjectServiceImpl implements ProjectService
 		for(Project p : repository.findAll())
 		{
 			projectDTO = new ProjectDTO(p.getId(), p.getName());
+			ret.add(projectDTO);
 		}
 		
 		return ret;
