@@ -9,8 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mycompany.osapp3.dto.EmployeeDTO;
 import com.mycompany.osapp3.entity.Employee;
-import com.mycompany.osapp3.entity.Platoon;
-import com.mycompany.osapp3.entity.Role;
 import com.mycompany.osapp3.repository.EmployeeRepository;
 import com.mycompany.osapp3.repository.PlatoonRepository;
 import com.mycompany.osapp3.repository.RoleRepository;

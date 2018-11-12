@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mycompany.osapp3.entity.Project;
+import com.mycompany.osapp3.dto.ProjectDTO;
 import com.mycompany.osapp3.service.ProjectService;
 
 @RestController
@@ -32,9 +32,16 @@ public class ProjectRWS
 	}
 	
 	@RequestMapping(value = "/projects", method = RequestMethod.GET)
-	public ResponseEntity<List<Project>> findAll()
+	public ResponseEntity<List<ProjectDTO>> findAll()
 	{		
-		return new ResponseEntity<List<Project>>(service.findAll(), HttpStatus.OK);
+		return new ResponseEntity<List<ProjectDTO>>(service.findAll(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/project", method = RequestMethod.POST)
+	public ResponseEntity<ProjectDTO> save(@RequestBody ProjectDTO projectDTO)
+	{
+		logger.info("Creating entity");
+		return new ResponseEntity<ProjectDTO>(service.save(projectDTO), HttpStatus.CREATED);
 	}
 
 }
