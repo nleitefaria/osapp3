@@ -20,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name="employee",schema="public")
 public class Employee  implements java.io.Serializable 
 {
-     private int id;
-     @JsonIgnore
-     private Platoon platoon;
-     @JsonIgnore
+     private int id;    
+     private Platoon platoon;    
      private Role role;
      private String name;
      private Date startDate;
