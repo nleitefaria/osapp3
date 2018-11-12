@@ -1,5 +1,6 @@
 package com.mycompany.osapp3.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,23 +35,34 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	@Transactional
-	public List<Employee> findAll() 
+	public List<EmployeeDTO> findAll() 
 	{
-		return repository.findAll();
+		List<EmployeeDTO> ret = new ArrayList<EmployeeDTO>();		
+		EmployeeDTO empoyeeDTO;
+		for(Employee e : repository.findAll())
+		{
+			empoyeeDTO = new EmployeeDTO(e.getId(), e.getName(), e.getStartDate().toString(), e.getPlatoon().getName(), e.getRole().getName());
+			ret.add(empoyeeDTO);
+		}		
+		return ret;
 	}
 	
 	@Transactional
-	public Employee findOne(String id)
+	public EmployeeDTO findOne(String id)
 	{
-		return repository.findOne(Integer.parseInt(id));
+		Employee e = repository.findOne(Integer.parseInt(id));
+		EmployeeDTO empoyeeDTO = new EmployeeDTO(e.getId(), e.getName(), e.getStartDate().toString(), e.getPlatoon().getName(), e.getRole().getName());	  
+		return empoyeeDTO;
 	}
 	
+	/*
 	@Transactional
-	public Employee save(EmployeeDTO employeeDTO)
+	public EmployeeDTO save(EmployeeDTO employeeDTO)
 	{	
 		Platoon platoon = repository1.findOne(employeeDTO.getPlatoonId());
 		Role role = repository2.findOne(employeeDTO.getRoleId());
 		Employee employee = new Employee(platoon, role, employeeDTO.getName(), employeeDTO.getStartDate());
 		return repository.save(employee);	
 	}
+	*/
 }

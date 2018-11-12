@@ -34,23 +34,25 @@ public class EmployeeRWS {
 	}
 
 	@RequestMapping(value = "/employees", method = RequestMethod.GET)
-	public ResponseEntity<List<Employee>> findAll()	
+	public ResponseEntity<List<EmployeeDTO>> findAll()	
 	{		
-		return new ResponseEntity<List<Employee>>(service.findAll(), HttpStatus.OK);
+		return new ResponseEntity<List<EmployeeDTO>>(service.findAll(), HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/employee/{id}", method = RequestMethod.GET)
+	public ResponseEntity<EmployeeDTO> findOne(@PathVariable String id)
+	{		
+		return new ResponseEntity<EmployeeDTO>(service.findOne(id), HttpStatus.OK);
+	}
+	
+	/*
 	@RequestMapping(value = "/employee", method = RequestMethod.POST)
 	public ResponseEntity<Employee> save(@RequestBody EmployeeDTO employeeDTO)
 	{
 		logger.info("Creating entity");
 		return new ResponseEntity<Employee>(service.save(employeeDTO), HttpStatus.CREATED);
 	}
-	
-	@RequestMapping(value = "/employee/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Employee> findOne(@PathVariable String id)
-	{		
-		return new ResponseEntity<Employee>(service.findOne(id), HttpStatus.OK);
-	}
+	*/
 
 
 }

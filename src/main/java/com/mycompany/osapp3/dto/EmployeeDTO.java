@@ -1,17 +1,24 @@
 package com.mycompany.osapp3.dto;
 
-import java.util.Date;
-
 public class EmployeeDTO 
 {
 	private int id;
 	private String name;
-    private Date startDate;
-    private Integer platoonId;   
-    private Integer roleId;
+    private String startDate;
+    private String platoon;   
+    private String role;
     
     public EmployeeDTO() 
     {		
+	}
+
+	public EmployeeDTO(int id, String name, String startDate, String platoon, String role) 
+	{
+		this.id = id;
+		this.name = name;
+		this.startDate = startDate;
+		this.platoon = platoon;
+		this.role = role;
 	}
 
 	public int getId() {
@@ -30,27 +37,27 @@ public class EmployeeDTO
 		this.name = name;
 	}
 
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public Integer getPlatoonId() {
-		return platoonId;
+	public String getPlatoon() {
+		return platoon;
 	}
 
-	public void setPlatoonId(Integer platoonId) {
-		this.platoonId = platoonId;
+	public void setPlatoon(String platoon) {
+		this.platoon = platoon;
 	}
 
-	public Integer getRoleId() {
-		return roleId;
+	public String getRole() {
+		return role;
 	}
 
-	public void setRoleId(Integer roleId) {
-		this.roleId = roleId;
-	}   
+	public void setRole(String role) {
+		this.role = role;
+	}
 }
