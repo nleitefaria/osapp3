@@ -20,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name="employee",schema="public")
 public class Employee  implements java.io.Serializable 
 {
-     private int id;
-     @JsonIgnore
-     private Platoon platoon;
-     @JsonIgnore
+     private int id;    
+     private Platoon platoon;    
      private Role role;
      private String name;
      private Date startDate;
@@ -33,7 +31,14 @@ public class Employee  implements java.io.Serializable
     public Employee() {
     }
 
-	
+    public Employee(Platoon platoon, Role role, String name, Date startDate)
+    {
+        this.platoon = platoon;
+        this.role = role;
+        this.name = name;
+        this.startDate = startDate;
+    }
+    
     public Employee(int id, Platoon platoon, Role role, String name, Date startDate) {
         this.id = id;
         this.platoon = platoon;
@@ -41,6 +46,7 @@ public class Employee  implements java.io.Serializable
         this.name = name;
         this.startDate = startDate;
     }
+    
     public Employee(int id, Platoon platoon, Role role, String name, Date startDate, Set<EmployeeProject> employeeProjects) {
        this.id = id;
        this.platoon = platoon;
@@ -50,9 +56,7 @@ public class Employee  implements java.io.Serializable
        this.employeeProjects = employeeProjects;
     }
    
-     @Id 
-
-    
+    @Id 
     @Column(name="id", unique=true, nullable=false)
     public int getId() {
         return this.id;
@@ -62,7 +66,7 @@ public class Employee  implements java.io.Serializable
         this.id = id;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="platoon_id", nullable=false)
     public Platoon getPlatoon() {
         return this.platoon;
@@ -72,7 +76,7 @@ public class Employee  implements java.io.Serializable
         this.platoon = platoon;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="role_id", nullable=false)
     public Role getRole() {
         return this.role;
@@ -102,7 +106,7 @@ public class Employee  implements java.io.Serializable
         this.startDate = startDate;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="employee")
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="employee")
     public Set<EmployeeProject> getEmployeeProjects() {
         return this.employeeProjects;
     }
@@ -110,10 +114,4 @@ public class Employee  implements java.io.Serializable
     public void setEmployeeProjects(Set<EmployeeProject> employeeProjects) {
         this.employeeProjects = employeeProjects;
     }
-
-
-
-
 }
-
-
