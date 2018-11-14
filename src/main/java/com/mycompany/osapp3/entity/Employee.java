@@ -30,14 +30,6 @@ public class Employee  implements java.io.Serializable
 
     public Employee() {
     }
-
-    public Employee(Platoon platoon, Role role, String name, Date startDate)
-    {
-        this.platoon = platoon;
-        this.role = role;
-        this.name = name;
-        this.startDate = startDate;
-    }
     
     public Employee(int id, Platoon platoon, Role role, String name, Date startDate) {
         this.id = id;

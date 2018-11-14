@@ -6,7 +6,9 @@ public class EmployeeDTO
 	private String name;
     private String startDate;
     private String platoon;   
+    private Integer platoonId;   
     private String role;
+    private Integer roleId;   
     
     public EmployeeDTO() 
     {		
@@ -19,6 +21,17 @@ public class EmployeeDTO
 		this.startDate = startDate;
 		this.platoon = platoon;
 		this.role = role;
+	}
+	
+	public EmployeeDTO(int id, String name, String startDate, String platoon, Integer platoonId, String role, Integer roleId) 
+	{
+		this.id = id;
+		this.name = name;
+		this.startDate = startDate;
+		this.platoon = platoon;
+		this.platoonId = platoonId;
+		this.role = role;
+		this.roleId = roleId;
 	}
 
 	public int getId() {
@@ -59,5 +72,21 @@ public class EmployeeDTO
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public Integer getPlatoonId() {
+		return platoonId;
+	}
+
+	public void setPlatoonId(Integer platoonId) {
+		this.platoonId = platoonId;
+	}
+
+	public Integer getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
 	}
 }

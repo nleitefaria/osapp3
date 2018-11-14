@@ -1,6 +1,7 @@
 package com.mycompany.osapp3.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,9 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mycompany.osapp3.dto.EmployeeDTO;
 import com.mycompany.osapp3.entity.Employee;
 import com.mycompany.osapp3.entity.EmployeeProject;
+import com.mycompany.osapp3.entity.Platoon;
 import com.mycompany.osapp3.entity.Project;
+import com.mycompany.osapp3.entity.Role;
 import com.mycompany.osapp3.repository.EmployeeRepository;
+import com.mycompany.osapp3.repository.PlatoonRepository;
 import com.mycompany.osapp3.repository.ProjectRepository;
+import com.mycompany.osapp3.repository.RoleRepository;
 import com.mycompany.osapp3.service.EmployeeService;
 
 @Service
@@ -24,6 +29,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 	
 	@Autowired
 	private ProjectRepository repository1;
+	
+	@Autowired
+	private RoleRepository repository2;
+	
+	@Autowired
+	private PlatoonRepository repository3;
 	
 	@Transactional
 	public Long count() 
@@ -67,14 +78,18 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return ret;
 	}
 	
-	/*
+	
 	@Transactional
-	public EmployeeDTO save(EmployeeDTO employeeDTO)
+	public Employee save(EmployeeDTO employeeDTO)
 	{	
-		Platoon platoon = repository1.findOne(employeeDTO.getPlatoonId());
-		Role role = repository2.findOne(employeeDTO.getRoleId());
-		Employee employee = new Employee(platoon, role, employeeDTO.getName(), employeeDTO.getStartDate());
+		Platoon platoon = repository3.findOne(employeeDTO.getPlatoonId());
+		Role role = repository2.findOne(employeeDTO.getRoleId());	
+		Employee employee = new Employee();
+		employee.setRole(role);
+		employee.setPlatoon(platoon);
+		employee.setName(employeeDTO.getName());
+		employee.setStartDate(new Date(employeeDTO.getStartDate()));
 		return repository.save(employee);	
 	}
-	*/
+	
 }
