@@ -64,7 +64,7 @@ public class ProjectServiceImpl implements ProjectService
 		while(iterator.hasNext())
 		{
 			EmployeeProject ep = (EmployeeProject) iterator.next();			
-			ProjectDTO projectDTO = new ProjectDTO(ep.getProject().getId(), ep.getProject().getName());	  
+			ProjectDTO projectDTO = new ProjectDTO(ep.getProject().getId(), ep.getProject().getName(), ep.getAllocation());	  
 			ret.add(projectDTO);			
 		}		
 		return ret;
