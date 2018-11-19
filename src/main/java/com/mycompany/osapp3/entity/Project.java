@@ -54,7 +54,8 @@ public class Project  implements java.io.Serializable
         this.name = name;
     }
 
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="project")
+    //@OneToMany(fetch=FetchType.LAZY, mappedBy="project")
+    @OneToMany(fetch=FetchType.EAGER, mappedBy="project")
     public Set<EmployeeProject> getEmployeeProjects() {
         return this.employeeProjects;
     }

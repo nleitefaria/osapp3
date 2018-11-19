@@ -42,8 +42,8 @@ public class EmployeeProject  implements java.io.Serializable {
 
     
     @AttributeOverrides( {
-        @AttributeOverride(name="employeeId", column=@Column(name="employee_id", nullable=false) ), 
-        @AttributeOverride(name="projectId", column=@Column(name="project_id", nullable=false) ) } )
+    @AttributeOverride(name="employeeId", column=@Column(name="employee_id", nullable=false) ), 
+    @AttributeOverride(name="projectId", column=@Column(name="project_id", nullable=false) ) } )
     public EmployeeProjectId getId() {
         return this.id;
     }
@@ -52,7 +52,8 @@ public class EmployeeProject  implements java.io.Serializable {
         this.id = id;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+    //@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="employee_id", nullable=false, insertable=false, updatable=false)
     public Employee getEmployee() {
         return this.employee;
@@ -62,7 +63,8 @@ public class EmployeeProject  implements java.io.Serializable {
         this.employee = employee;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+    //@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="project_id", nullable=false, insertable=false, updatable=false)
     public Project getProject() {
         return this.project;

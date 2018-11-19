@@ -58,7 +58,8 @@ public class Employee  implements java.io.Serializable
         this.id = id;
     }
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    //@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="platoon_id", nullable=false)
     public Platoon getPlatoon() {
         return this.platoon;
@@ -68,7 +69,8 @@ public class Employee  implements java.io.Serializable
         this.platoon = platoon;
     }
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    //@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="role_id", nullable=false)
     public Role getRole() {
         return this.role;
@@ -98,7 +100,8 @@ public class Employee  implements java.io.Serializable
         this.startDate = startDate;
     }
 
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="employee")
+    //@OneToMany(fetch=FetchType.LAZY, mappedBy="employee")
+    @OneToMany(fetch=FetchType.EAGER, mappedBy="employee")
     public Set<EmployeeProject> getEmployeeProjects() {
         return this.employeeProjects;
     }

@@ -42,9 +42,7 @@ public class Role  implements java.io.Serializable {
        this.employees = employees;
     }
    
-     @Id 
-
-    
+    @Id   
     @Column(name="id", unique=true, nullable=false)
     public int getId() {
         return this.id;
@@ -64,7 +62,8 @@ public class Role  implements java.io.Serializable {
         this.name = name;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="role")
+    //@OneToMany(fetch=FetchType.LAZY, mappedBy="role")
+    @OneToMany(fetch=FetchType.EAGER, mappedBy="role")
     public Set<Employee> getEmployees() {
         return this.employees;
     }

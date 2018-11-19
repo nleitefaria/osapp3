@@ -40,9 +40,7 @@ public class Platoon  implements java.io.Serializable {
        this.employees = employees;
     }
    
-     @Id 
-
-    
+    @Id    
     @Column(name="id", unique=true, nullable=false)
     public int getId() {
         return this.id;
@@ -62,7 +60,8 @@ public class Platoon  implements java.io.Serializable {
         this.name = name;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="platoon")
+    //@OneToMany(fetch=FetchType.LAZY, mappedBy="platoon")
+    @OneToMany(fetch=FetchType.EAGER, mappedBy="platoon")
     public Set<Employee> getEmployees() {
         return this.employees;
     }
