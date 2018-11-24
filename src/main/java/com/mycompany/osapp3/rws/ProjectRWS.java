@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.mycompany.osapp3.dto.EmployeeDTO;
 import com.mycompany.osapp3.dto.ProjectDTO;
 import com.mycompany.osapp3.service.ProjectService;
 
@@ -35,6 +33,12 @@ public class ProjectRWS
 	public ResponseEntity<List<ProjectDTO>> findAll()
 	{		
 		return new ResponseEntity<List<ProjectDTO>>(service.findAll(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/project/{id}", method = RequestMethod.GET)
+	public ResponseEntity<ProjectDTO> findOne(@PathVariable String id)
+	{		
+		return new ResponseEntity<ProjectDTO>(service.findOne(id), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/projects/employee/{id}", method = RequestMethod.GET)
