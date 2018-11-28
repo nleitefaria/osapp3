@@ -1,5 +1,7 @@
 package com.mycompany.osapp3.dto;
 
+import java.math.BigDecimal;
+
 public class EmployeeDTO 
 {
 	private int id;
@@ -8,7 +10,8 @@ public class EmployeeDTO
     private String platoon;   
     private Integer platoonId;   
     private String role;
-    private Integer roleId;   
+    private Integer roleId;
+    private BigDecimal allocation;
     
     public EmployeeDTO() 
     {		
@@ -23,7 +26,7 @@ public class EmployeeDTO
 		this.role = role;
 	}
 	
-	public EmployeeDTO(int id, String name, String startDate, String platoon, Integer platoonId, String role, Integer roleId) 
+	public EmployeeDTO(int id, String name, String startDate, String platoon, Integer platoonId, String role, Integer roleId, BigDecimal allocation) 
 	{
 		this.id = id;
 		this.name = name;
@@ -32,6 +35,7 @@ public class EmployeeDTO
 		this.platoonId = platoonId;
 		this.role = role;
 		this.roleId = roleId;
+		this.allocation = allocation;
 	}
 
 	public int getId() {
@@ -88,5 +92,13 @@ public class EmployeeDTO
 
 	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
+	}
+
+	public BigDecimal getAllocation() {
+		return allocation;
+	}
+
+	public void setAllocation(BigDecimal allocation) {
+		this.allocation = allocation;
 	}
 }

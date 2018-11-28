@@ -1,5 +1,6 @@
 package com.mycompany.osapp3.service.impl;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -71,8 +72,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 		Iterator iterator = project.getEmployeeProjects().iterator();
 		while(iterator.hasNext())
 		{
-			EmployeeProject ep = (EmployeeProject) iterator.next();			
-			EmployeeDTO empoyeeDTO = new EmployeeDTO(ep.getEmployee().getId(), ep.getEmployee().getName(), ep.getEmployee().getStartDate().toString(), ep.getEmployee().getPlatoon().getName(), ep.getEmployee().getRole().getName());	   			
+			EmployeeProject ep = (EmployeeProject) iterator.next();						
+			EmployeeDTO empoyeeDTO = new EmployeeDTO(ep.getEmployee().getId(), ep.getEmployee().getName(), ep.getEmployee().getStartDate().toString(), ep.getEmployee().getPlatoon().getName(), ep.getEmployee().getPlatoon().getId() ,ep.getEmployee().getRole().getName(), ep.getEmployee().getRole().getId(), ep.getAllocation());	   					
 			ret.add(empoyeeDTO);			
 		}		
 		return ret;
